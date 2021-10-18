@@ -27,16 +27,106 @@ function teamBuilder9k() {
                     "I have what I need, thanks!",  //ends it
                 ]
             }
-        ])
-        //now a function or .then to  actually make the stuff... if statement === need to research that
+            //now a function or .then to  actually make the stuff... if statement === need to research that
+        ])  .then (( response ) => {
+        if (selection.teamBuilder9k === "Add a Manager"){
+            addManager();
+        } if (selection.teamBuilder9k === "Add an Engineer" ){
+            addEngineer();
+        } if (selection.teamBuilder9k ===  "Add an Intern"){
+            addIntern();
+        }else {
+            teamBuilt();
+        }
+    })
 }
 
 
-function addManager () // question array
-function addEngineer() // question array
-function addIntern  () // question array
-// I need to get the input into the template. 
+function addManager () {
+    inquirer
+        .prompt([
+            {
+                type: 'input',
+                name:'nameIntern',
+                message: "What is the name of the intern"
+            },
+            {
+                type: 'input',
+                name:'nameIntern',
+                message: "What is the name of the intern"
+            },
+            {
+                type: 'input',
+                name:'nameIntern',
+                message: "What is the name of the intern"
+            },
+            {
+                type: 'input',
+                name:'nameIntern',
+                message: "What is the name of the intern"
+            },
+        ]).then ((response) =>{
+            console.log(response); 
+        })
+} 
+function addEngineer(){
+    inquirer
+        .prompt([
+            {
+                type: 'input',
+                name:'nameIntern',
+                message: "What is the name of the intern"
+            },
+            {
+                type: 'input',
+                name:'nameIntern',
+                message: "What is the name of the intern"
+            },
+            {
+                type: 'input',
+                name:'nameIntern',
+                message: "What is the name of the intern"
+            },
+            {
+                type: 'input',
+                name:'nameIntern',
+                message: "What is the name of the intern"
+            },
+        ]).then ((response) =>{
+            console.log(response); 
+        })
+}  
 
+function addIntern  (){
+    inquirer
+        .prompt([
+            {
+                type: 'input',
+                name:'nameIntern',
+                message: "What is the name of the intern"
+            },
+            {
+                type: 'input',
+                name:'nameIntern',
+                message: "What is the name of the intern"
+            },
+            {
+                type: 'input',
+                name:'nameIntern',
+                message: "What is the name of the intern"
+            },
+            {
+                type: 'input',
+                name:'nameIntern',
+                message: "What is the name of the intern"
+            },
+        ]).then ((response) =>{
+            console.log(response); 
+        })
+}  
+// I need to get the input into the template. 
+//ends the question process and works the data... this will lead into the HTML bit
+function teamBuilt ()
 
 //figure out how to discern class, maybe add a question for which to add next?
 //would you like to add an employee... manager/engineer/intern
