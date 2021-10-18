@@ -1,12 +1,42 @@
 //use miniproject 9/inquirer fs and classes 10/21 and 10/24
 const inquirer = require('inquirer');
 const fs = require('fs');
+const Employee = require('./profiles/Employee');
+const Manager = require('./profiles/Manager');
+const Engineer = require('./profiles/Engineer');
+const Intern = require('./profiles/Intern');
 
 //create a html base and css for everything like in the miniproject
-//create class for the emplyee that will serve as base. Then make classes for others
-// per the screenshot in live class, we need manager, enginer, intern
+
+//xx create class for the employee that will serve as base. Then make classes for others
+//xx per the screenshot in live class, we need manager, enginer, intern
 
 //make an array of questions for the info that gets taken
+
+function teamBuilder9k() {
+    inquirer
+        .prompt([
+            {
+                type: 'list',
+                name: 'teambuilder9k',
+                message: 'What human please?',
+                choice: [
+                    "Add a Manager",
+                    "Add an Engineer",
+                    "Add an Intern",                
+                    "I have what I need, thanks!",  //ends it
+                ]
+            }
+        ])
+        //now a function or .then to  actually make the stuff... if statement === need to research that
+}
+
+
+function addManager () // question array
+function addEngineer() // question array
+function addIntern  () // question array
+// I need to get the input into the template. 
+
 
 //figure out how to discern class, maybe add a question for which to add next?
 //would you like to add an employee... manager/engineer/intern
@@ -20,8 +50,9 @@ const fs = require('fs');
 // the template literal needs to be a card setup bootstrap style
 
 //create a function to start the whole process. 
+teamBuilder9k ();
 
 
-//then create tests that prove this
+//then create tests that prove this. Seek jest
 // then pretty it up and maybe make it something cooler than manager/employee
 //something D&D themed? 
