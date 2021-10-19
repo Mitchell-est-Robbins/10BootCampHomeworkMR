@@ -30,8 +30,8 @@ const teamBuilder9k = () => {
             addEngineer();
         } if (selection.teambuilder9ksetup ===  "Add an Intern"){
             addIntern();
-        } else if (selection.teambuilder9ksetup === "I have what I need, thanks!")  {
-            teamBuilt();
+        // } if (selection.teambuilder9ksetup === "I have what I need, thanks!")  {
+        //     teamBuilt();
         }
     })
 }
@@ -131,6 +131,7 @@ function addIntern (){
             const intern = new Intern( nameInt, idInt, emailInt, schoolInt);
             console.log(intern)
             theTeam.push(intern); 
+            // console.log (theTeam) //it is going into the team, now to pull it out
             teamBuilder9k()
         })
 }  
@@ -138,14 +139,16 @@ function addIntern (){
 //ends the question process and works the data... this will lead into the HTML bit
 //-----------------------------------------------------------------
 
-const teamBuilt= () => {
-
-}
+// const teamBuilt= () => {
+//  for (theTeam) // like miniproject
+// }
 
 
 
 // //-------------------------------------------------------------------
-// //generates the HTML and plugs the stuff in
+// //generates the HTML and plugs the stuff in/ 
+//===++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//maybe appending the cards. like have it generate then have the other stuff add to it? 
 
 
 // function createCards (){
