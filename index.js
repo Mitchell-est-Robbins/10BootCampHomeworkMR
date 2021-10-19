@@ -6,20 +6,14 @@ const Manager = require('./profiles/Manager');
 const Engineer = require('./profiles/Engineer');
 const Intern = require('./profiles/Intern');
 
-const TeamBuilt
-//create a html base and css for everything like in the miniproject
+const theTeam = []
+// =============================================================================
 
-//xx create class for the employee that will serve as base. Then make classes for others
-//xx per the screenshot in live class, we need manager, enginer, intern
-
-//make an array of questions for the info that gets taken
-
-function teamBuilder9k() {
-    inquirer
-        .prompt([
+const teamBuilder9k = () => {
+   return inquirer.prompt([
             {
                 type: 'list',
-                name: 'teambuilder9k',
+                name: 'teambuilder9ksetup',
                 message: 'What human please?',
                 choices: [                          //choices...
                     "Add a Manager",
@@ -28,25 +22,23 @@ function teamBuilder9k() {
                     "I have what I need, thanks!",  //ends it
                 ]
             }
-            //now a function or .then to  actually make the stuff... if statement === need to research that
+        
         ])  .then (( selection ) => {
-            console.log(selection)
-          if(selection.teamBuilder9k === "Add a Manager"){
+          if(selection.teambuilder9ksetup === "Add a Manager"){ //small b builder.... that is 2 hours I'm never getting back
             addManager();
-        } if (selection.teamBuilder9k === "Add an Engineer"){
+        } if (selection.teambuilder9ksetup === "Add an Engineer"){
             addEngineer();
-        } if (selection.teamBuilder9k ===  "Add an Intern"){
+        } if (selection.teambuilder9ksetup ===  "Add an Intern"){
             addIntern();
-        }if (selection.teamBuilder9k === "I have what I need, thanks!")  {
+        } else if (selection.teambuilder9ksetup === "I have what I need, thanks!")  {
             teamBuilt();
         }
     })
 }
 
-
+// ======================================================================
 function addManager () {
-    inquirer
-        .prompt([
+    inquirer.prompt([
             {
                 type: 'input',
                 name:'nameMan',
@@ -64,16 +56,22 @@ function addManager () {
             },
             {
                 type: 'input',
-                name:'githubMan',
-                message: "Input their Github Name"
+                name:'officeMan',
+                message: "Input their Office Number"
             },
         ]).then ((response) =>{
-            console.log(response); 
+            // console.log(response);
+            const {nameMan, idMan, emailMan, officeMan } = response; 
+            const manager = new Manager( nameMan, idMan, emailMan, officeMan);
+            console.log(manager)
+            theTeam.push(manager);
+            teamBuilder9k();
         })
 } 
-function addEngineer(){
-    inquirer
-        .prompt([
+// ======================================================================
+
+function addEngineer (){
+    inquirer.prompt([
             {
                 type: 'input',
                 name:'nameEng',
@@ -95,13 +93,18 @@ function addEngineer(){
                 message: "Input their Github Name"
             },
         ]).then ((response) =>{
-            console.log(response); 
+            // console.log(response);
+            const {nameEng, idEng, emailEng, githubEng} = response;
+            const engineer = new Engineer( nameEng, idEng, emailEng, githubEng);
+            console.log(engineer)
+            theTeam.push(engineer);
+            teamBuilder9k(); 
         })
 }  
+// ======================================================================
 
-function addIntern  (){
-    inquirer
-        .prompt([
+function addIntern (){
+    inquirer.prompt([
             {
                 type: 'input',
                 name:'nameInt',
@@ -123,32 +126,49 @@ function addIntern  (){
                 message: "Input the school they are from"
             },
         ]).then ((response) =>{
-            console.log(response); 
+            // console.log(response);
+            const {nameInt, idInt, emailInt, schoolInt} = response;
+            const intern = new Intern( nameInt, idInt, emailInt, schoolInt);
+            console.log(intern)
+            theTeam.push(intern); 
+            teamBuilder9k()
         })
 }  
 // I need to get the input into the template. 
 //ends the question process and works the data... this will lead into the HTML bit
 //-----------------------------------------------------------------
-// function teamBuilt ();
 
+const teamBuilt= () => {
+
+}
+
+
+
+// //-------------------------------------------------------------------
+// //generates the HTML and plugs the stuff in
+
+
+// function createCards (){
+
+// }
 
 //xx figure out how to discern class, maybe add a question for which to add next?
 //xx would you like to add an employee... manager/engineer/intern
 
-//figure out how to capture the info perhaps in an array of team members
+//xx figure out how to capture the info perhaps in an array of team members
 
-// make a function to loop through people to add them to the template literal
+//xx make a function to loop through people to add them to the template literal
 
-// make a function to call template literal to actually generate the HTML
+//xx make a function to call template literal to actually generate the HTML
 
 // the template literal needs to be a card setup bootstrap style
 
-//create a function to start the whole process. 
+//xxcreate a function to start the whole process. 
+teamBuilder9k ();
 
 // addIntern();
 // addEngineer();
 // addManager ();
-teamBuilder9k ();
 
 
 //then create tests that prove this. Seek jest
