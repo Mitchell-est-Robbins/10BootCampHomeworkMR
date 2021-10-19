@@ -6,6 +6,7 @@ const Manager = require('./profiles/Manager');
 const Engineer = require('./profiles/Engineer');
 const Intern = require('./profiles/Intern');
 
+const TeamBuilt
 //create a html base and css for everything like in the miniproject
 
 //xx create class for the employee that will serve as base. Then make classes for others
@@ -20,7 +21,7 @@ function teamBuilder9k() {
                 type: 'list',
                 name: 'teambuilder9k',
                 message: 'What human please?',
-                choice: [
+                choices: [                          //choices...
                     "Add a Manager",
                     "Add an Engineer",
                     "Add an Intern",                
@@ -28,14 +29,15 @@ function teamBuilder9k() {
                 ]
             }
             //now a function or .then to  actually make the stuff... if statement === need to research that
-        ])  .then (( response ) => {
-        if (selection.teamBuilder9k === "Add a Manager"){
+        ])  .then (( selection ) => {
+            console.log(selection)
+          if(selection.teamBuilder9k === "Add a Manager"){
             addManager();
-        } if (selection.teamBuilder9k === "Add an Engineer" ){
+        } if (selection.teamBuilder9k === "Add an Engineer"){
             addEngineer();
         } if (selection.teamBuilder9k ===  "Add an Intern"){
             addIntern();
-        }else {
+        }if (selection.teamBuilder9k === "I have what I need, thanks!")  {
             teamBuilt();
         }
     })
@@ -47,23 +49,23 @@ function addManager () {
         .prompt([
             {
                 type: 'input',
-                name:'nameIntern',
-                message: "What is the name of the intern"
+                name:'nameMan',
+                message: "What is the name of the Manager?"
             },
             {
                 type: 'input',
-                name:'nameIntern',
-                message: "What is the name of the intern"
+                name:'idMan',
+                message: "Input their ID"
             },
             {
                 type: 'input',
-                name:'nameIntern',
-                message: "What is the name of the intern"
+                name:'emailMan',
+                message: "Input their Email"
             },
             {
                 type: 'input',
-                name:'nameIntern',
-                message: "What is the name of the intern"
+                name:'githubMan',
+                message: "Input their Github Name"
             },
         ]).then ((response) =>{
             console.log(response); 
@@ -74,23 +76,23 @@ function addEngineer(){
         .prompt([
             {
                 type: 'input',
-                name:'nameIntern',
-                message: "What is the name of the intern"
+                name:'nameEng',
+                message: "What is the name of the Engineer?"
             },
             {
                 type: 'input',
-                name:'nameIntern',
-                message: "What is the name of the intern"
+                name:'idEng',
+                message: "Input their ID"
             },
             {
                 type: 'input',
-                name:'nameIntern',
-                message: "What is the name of the intern"
+                name:'emailEng',
+                message: "Input their Email"
             },
             {
                 type: 'input',
-                name:'nameIntern',
-                message: "What is the name of the intern"
+                name:'githubEng',
+                message: "Input their Github Name"
             },
         ]).then ((response) =>{
             console.log(response); 
@@ -102,23 +104,23 @@ function addIntern  (){
         .prompt([
             {
                 type: 'input',
-                name:'nameIntern',
-                message: "What is the name of the intern"
+                name:'nameInt',
+                message: "What is the name of the Intern?"
             },
             {
                 type: 'input',
-                name:'nameIntern',
-                message: "What is the name of the intern"
+                name:'idInt',
+                message: "Input their ID"
             },
             {
                 type: 'input',
-                name:'nameIntern',
-                message: "What is the name of the intern"
+                name:'emailInt',
+                message: "Input their Email"
             },
             {
                 type: 'input',
-                name:'nameIntern',
-                message: "What is the name of the intern"
+                name:'schoolInt',
+                message: "Input the school they are from"
             },
         ]).then ((response) =>{
             console.log(response); 
@@ -126,10 +128,12 @@ function addIntern  (){
 }  
 // I need to get the input into the template. 
 //ends the question process and works the data... this will lead into the HTML bit
-function teamBuilt ()
+//-----------------------------------------------------------------
+// function teamBuilt ();
 
-//figure out how to discern class, maybe add a question for which to add next?
-//would you like to add an employee... manager/engineer/intern
+
+//xx figure out how to discern class, maybe add a question for which to add next?
+//xx would you like to add an employee... manager/engineer/intern
 
 //figure out how to capture the info perhaps in an array of team members
 
@@ -140,6 +144,10 @@ function teamBuilt ()
 // the template literal needs to be a card setup bootstrap style
 
 //create a function to start the whole process. 
+
+// addIntern();
+// addEngineer();
+// addManager ();
 teamBuilder9k ();
 
 
