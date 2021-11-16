@@ -17,3 +17,19 @@ describe('intern', () => {
 
     })
 })
+
+
+describe('internfulltest', () => {
+    it("return a full Intern obj", () => {
+        const name= "Me"
+        const id= "1"
+        const email= "me@me.com"
+        const special= "UT"
+        
+        const internfulltest = new Intern (name, id, email, special)
+        expect(internfulltest.name).toEqual(name)
+        expect(internfulltest.id).toEqual(id)
+        expect(internfulltest.email).toEqual(email)
+        expect(internfulltest.special).toEqual(special)
+    })
+})
