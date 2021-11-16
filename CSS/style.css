@@ -1,1 +1,25 @@
 /* fill me up with cool stuff once every'ting is good */
+
+body{
+   background-color: black;
+   
+
+
+
+}
+.card{
+    background-color:rgb(36, 36, 36);
+    margin-left: 20px;
+    font-weight: bolder;
+}
+
+.card-title{
+    font-weight: bold;
+    color:white;
+    background-color:crimson;
+}
+
+#backpic{
+ background-image: url("../pictures/all_your_base_are_belong_to_us.02.jpg");
+ color:yellow;
+}

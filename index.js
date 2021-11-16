@@ -162,6 +162,7 @@ const teamBuilt= () => {
                     <li class="list-group-item">${employee.special}</li>
                 </ul>
         </div>
+        </div>
         `;
 
         cardArray.push(cardTemp)
@@ -185,20 +186,23 @@ function htmlGenerate (Array) {
     <meta name="Description" content="Enter your description here" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="reset.css"/>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./CSS/reset.css">
+    <link rel="stylesheet" href="./CSS/style.css">
     
     <title>TB9K</title>
     
     </head>
     
     <body>
-        <header class="jumbotron">
+        <header class="jumbotron" id="backpic">
             <h1 class="display-3">TeamBuilder 9000</h1>
             <h2 class="lead">All your Human-Resource are belong to us</h2>
             
-        </header>`
+        </header>
+        <div class="row">
+        `
     
+        
         Array.forEach((element) =>{
             temphtml += element 
             // return JSON.stringify(element)
@@ -206,10 +210,13 @@ function htmlGenerate (Array) {
         })
 
         
-        let temphtml2 = `<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        let temphtml2 = 
+        `
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
-        <script src="script.js"></script> <!-- might not even need this one. but we shall see-->
+        
         </body>
         
         </html>
