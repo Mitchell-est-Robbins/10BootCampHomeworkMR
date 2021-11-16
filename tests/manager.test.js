@@ -1,0 +1,1 @@
+const Manager = require("../profiles/Manager.js")
