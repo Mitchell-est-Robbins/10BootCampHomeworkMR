@@ -7,6 +7,7 @@ const Engineer = require('./profiles/Engineer');
 const Intern = require('./profiles/Intern');
 
 const theTeam = []
+
 // =============================================================================
 
 const teamBuilder9k = () => {
@@ -24,20 +25,22 @@ const teamBuilder9k = () => {
             }
         
         ])  .then (( selection ) => {
+            // console.log(selection)
           if(selection.teambuilder9ksetup === "Add a Manager"){ //small b builder.... that is 2 hours I'm never getting back
             addManager();
         } if (selection.teambuilder9ksetup === "Add an Engineer"){
             addEngineer();
         } if (selection.teambuilder9ksetup ===  "Add an Intern"){
             addIntern();
-        } if (selection.teambuilder9ksetup === "I have what I need, thanks!")  {
+        } if (selection.teambuilder9ksetup === "I have what I need, thanks!"){
             teamBuilt(theTeam);
-            console.log (theTeam);
+            // console.log (theTeam);
         }
     })
 }
 
 // ======================================================================
+
 function addManager () {
     inquirer.prompt([
             {
@@ -69,6 +72,7 @@ function addManager () {
             teamBuilder9k();
         })
 } 
+
 // ======================================================================
 
 function addEngineer (){
@@ -139,41 +143,52 @@ function addIntern (){
     }  
 
 
-    //========= HTML ===================================================================================================================
-    
+//========= HTML ===================================================================================================================
+    //got some help in this section from Ethan Cho, and William Renfroe 10-20-21
 const teamBuilt= () => {
+    // console.log(theTeam)
+    const cardArray= [];
+    theTeam.forEach (employee => {
+        console.log("employee: " , employee )
+         var cardTemp= 
+        `
+        <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">${employee.name}</h5>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">${employee.id}</li>
+                    <li class="list-group-item">${employee.email}</li>
+                    <li class="list-group-item">${employee.role}</li>
+                    <li class="list-group-item">${employee.special}</li>
+                </ul>
+        </div>
+        `;
 
-    `
-    <div class="card" style="width: 18rem;">
-    <div class="card-body">
-        <h5 class="card-title">${parts.name}</h5>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">${parts.id}</li>
-                <li class="list-group-item">${parts.email}</li>
-                <li class="list-group-item">${parts.role}</li>
-                <li class="list-group-item">${parts.special}</li>
-            </ul>
-    </div>
-    `
+        cardArray.push(cardTemp)
+        
+// console.log(cardTemp);
+    })
+   
+   indexCreation (htmlGenerate (cardArray))
+}
 
-    htmlGenerate(cards);
-}       
 
-function htmlGenerate (card) { 
-    return`<!DOCTYPE html>
+function htmlGenerate (Array) { 
+    
+    let temphtml =`<!DOCTYPE html>
     <html lang="en">
     
     <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta http-equiv="X-UA-Compatible" content="ie=edge">
-      <meta name="Description" content="Enter your description here" />
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-      <link rel="stylesheet" href="reset.css"/>
-      <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="Description" content="Enter your description here" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="reset.css"/>
+    <link rel="stylesheet" href="style.css">
     
-      <title>TB9K</title>
+    <title>TB9K</title>
     
     </head>
     
@@ -182,22 +197,26 @@ function htmlGenerate (card) {
             <h1 class="display-3">TeamBuilder 9000</h1>
             <h2 class="lead">All your Human-Resource are belong to us</h2>
             
-        </header>
+        </header>`
     
-        ${card}
+        Array.forEach((element) =>{
+            temphtml += element 
+            // return JSON.stringify(element)
+            // console.log(element)
+        })
 
         
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
-          <script src="script.js"></script> <!-- might not even need this one. but we shall see-->
+        let temphtml2 = `<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+        <script src="script.js"></script> <!-- might not even need this one. but we shall see-->
         </body>
         
         </html>
     
     `
-    
-    
+    temphtml += temphtml2
+    return temphtml
 };
 
 
@@ -214,20 +233,10 @@ function indexCreation (data) {
 
 
 
-//xx figure out how to discern class, maybe add a question for which to add next?
-//xx would you like to add an employee... manager/engineer/intern
-
-//xx figure out how to capture the info perhaps in an array of team members
-
-//xx make a function to loop through people to add them to the template literal
-
-//xx make a function to call template literal to actually generate the HTML
-
-// the template literal needs to be a card setup bootstrap style
 
 //xxcreate a function to start the whole process.
 teamBuilder9k ();
-console.log (theTeam);
+// console.log (theTeam);
 
 // addIntern();
 // addEngineer();
