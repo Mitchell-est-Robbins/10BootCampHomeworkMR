@@ -22,7 +22,8 @@ NOW with integrated testing.
 
 
 
-
+## Link: to the video walkthrough
+https://watch.screencastify.com/v/F4cBYTp0ZJ6nsnshwowS
 
 
 -------
